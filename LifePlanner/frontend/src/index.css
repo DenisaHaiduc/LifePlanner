@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   DESIGN SYSTEM — 2026 Dark Premium Theme
+   Inspired by: deep blacks, magenta/purple/cyan accents, glassmorphism,
+   subtle glowing borders, and modern dark dashboard aesthetics.
+   ============================================================================ */
+
+:root {
+  /* Core surface colors */
+  --bg-primary: #050508;
+  --bg-secondary: #0c0c12;
+  --bg-card: #111118;
+  --bg-card-hover: #16161f;
+  --bg-elevated: #1a1a24;
+  --bg-input: #0e0e16;
+
+  /* Border & separator */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-glow: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(168, 85, 247, 0.3);
+
+  /* Text hierarchy */
+  --text-primary: #f0f0f5;
+  --text-secondary: #8b8b9e;
+  --text-muted: #55556a;
+  --text-accent: #c084fc;
+
+  /* Accent gradient */
+  --accent-magenta: #e040a0;
+  --accent-purple: #a855f7;
+  --accent-cyan: #22d3ee;
+  --accent-blue: #6366f1;
+
+  /* Primary accent (used for buttons, highlights) */
+  --accent: #a855f7;
+  --accent-hover: #9333ea;
+  --accent-glow: rgba(168, 85, 247, 0.25);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 20px rgba(168, 85, 247, 0.15);
+
+  /* Glass effects */
+  --glass-bg: rgba(17, 17, 24, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* ============================================================================
+   SCROLLBAR — Sleek, minimal, dark
+   ============================================================================ */
+
+/* All scrollbars — global dark style */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+
+/* ============================================================================
+   CHECKBOX — Circular, glow-accent style
+   ============================================================================ */
+
+.apple-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--border-glow);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.apple-checkbox:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.apple-checkbox:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.apple-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* ============================================================================
+   GLASS MORPHISM — Dark variant
+   ============================================================================ */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--glass-border);
+}
+
+/* ============================================================================
+   TRANSITIONS
+   ============================================================================ */
+
+.transition-apple {
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ============================================================================
+   GRADIENT BORDERS — Subtle accent glow on cards
+   ============================================================================ */
+
+.card-glow {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.card-glow:hover {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ============================================================================
+   GRADIENT ACCENT BAR — Used in header / decorative elements
+   ============================================================================ */
+
+.accent-gradient {
+  background: linear-gradient(135deg, var(--accent-magenta), var(--accent-purple), var(--accent-cyan));
+}
+
+.accent-gradient-text {
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent), var(--text-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================================
+   INPUT FIELDS — Dark theme
+   ============================================================================ */
+
+input[type="date"],
+input[type="time"],
+select {
+  color-scheme: var(--color-scheme, dark);
+}
+
+/* ============================================================================
+   ANIMATED BACKGROUND GRAIN / NOISE (optional subtle texture)
+   ============================================================================ */
+
+.bg-noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}

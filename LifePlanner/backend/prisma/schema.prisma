@@ -1,0 +1,52 @@
+// =============================================================================
+// DATA ACCESS LAYER - Prisma Schema
+// =============================================================================
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id              String           @id @default(uuid())
+  title           String
+  description     String?
+  startDate       DateTime
+  endDate         DateTime?
+  startTime       String?
+  endTime         String?
+  color           String           @default("#3B82F6")
+  prepDays        Int              @default(0)
+  isCompleted     Boolean          @default(false)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  dayCompletions  DayCompletion[]
+}
+
+// Tracks per-day completion for multi-day tasks and prep days.
+// Each row = one specific date marked as done for a given task.
+// The `type` field distinguishes between "task" days and "prep" days.
+model DayCompletion {
+  id     String   @id @default(uuid())
+  taskId String
+  date   DateTime
+  type   String   @default("task") // "task" or "prep"
+  task   Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@unique([taskId, date, type])
+}
+
+model Todo {
+  id          String    @id @default(uuid())
+  title       String
+  deadline    DateTime?
+  category    String    @default("general")
+  isCompleted Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
