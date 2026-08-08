@@ -8,7 +8,7 @@
 
 | Infinite Calendar & Dashboard View | Task & Habit Sidebar |
 | :---: | :---: |
-| ![Dashboard View](screenshots/dashboard.png) | ![Sidebar View](screenshots/sidebar.png) |
+| ![Dashboard View](calendar.png) | ![Sidebar View](todo.png) |
 
 
 
