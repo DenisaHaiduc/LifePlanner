@@ -8,7 +8,7 @@
 
 | Infinite Calendar & Dashboard View | Task & Habit Sidebar |
 | :---: | :---: |
-| ![Dashboard View](./calendar.png) | ![To-Do List](./todo.png) |
+| ![Dashboard View](LifePlanner/calendar.png) | ![To-Do List](LifePlanner/todo.png) |
 
 
 
