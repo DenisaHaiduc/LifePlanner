@@ -26,23 +26,43 @@
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, Tailwind CSS, Radix UI, Axios, Date-fns, Lucide Icons
-- **Backend:** Node.js / Express.js (REST APIs) or C# .NET WPF
-- **Database:** PostgreSQL / SQLite
-- **Architecture:** Multi-Layered Architecture (Presentation Layer, Business Logic Layer with Controllers & Services, Data Access Layer)
+### Frontend
+- **Framework & Build Tool:** React.js, Vite
+- **Styling:** Tailwind CSS, PostCSS
+- **State & Logic:** React Hooks, Custom Services
+
+### Backend
+- **Runtime & Framework:** Node.js, Express.js (REST APIs)
+- **ORM & Database:** Prisma ORM, PostgreSQL / SQLite
+- **Architecture:** Layered Architecture (Routes, Controllers, Services)
 
 ---
 
 ## 📁 Repository Structure
 
 ```text
-AcademicFlow/
-├── src/
-│   ├── components/         # UI Components (Calendar, DayView, TodoSidebar, TaskForm)
-│   ├── controllers/        # API Controllers (taskController, todoController)
-│   ├── services/           # Business Logic & Streak Calculation Services
-│   ├── utils/              # Utility Functions (Theme management, Date handling)
-│   ├── App.jsx             # Root Component
-│   └── main.jsx
-├── screenshots/            # Showcase images for GitHub
-└── README.md
+LifePlanner/
+├── backend/
+│   ├── prisma/                  # Prisma ORM Schema & Database Migrations
+│   ├── src/
+│   │   ├── controllers/         # API Controllers (taskController, todoController)
+│   │   ├── middleware/          # Express Middlewares
+│   │   ├── routes/              # Express API Routes (taskRoutes, todoRoutes, notificationRoutes)
+│   │   ├── services/            # Business Logic Services (taskService, todoService)
+│   │   └── index.js             # Express Server Entry Point
+│   ├── .env                     # Environment Variables
+│   └── package.json             # Backend Dependencies & Scripts
+│
+└── frontend/
+    ├── src/
+    │   ├── components/          # React Components (Calendar, TodoSidebar, TaskForm, DayView)
+    │   ├── hooks/               # Custom React Hooks
+    │   ├── services/            # API Services & Axios instances
+    │   ├── utils/               # Utility functions (Theme handling, Date formatting)
+    │   ├── App.jsx              # Main React Application Component
+    │   ├── index.css            # Global CSS & Tailwind imports
+    │   └── main.jsx             # React Application Entry Point
+    ├── index.html               # Main HTML Document
+    ├── tailwind.config.js       # Tailwind CSS Configuration
+    ├── vite.config.js           # Vite Build Configuration
+    └── package.json             # Frontend Dependencies & Scripts
