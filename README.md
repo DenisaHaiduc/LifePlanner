@@ -1,6 +1,6 @@
 # 📅 AcademicFlow / LifePlanner – Academic & Habit Management System
 
-**AcademicFlow (LifePlanner)** is a personal productivity platform designed to centralize academic scheduling, track daily habits, and manage deadline-driven tasks[cite: 11, 14]. The application features an interactive dashboard calendar, habit consistency heatmaps, and a dedicated task management workflow.
+**AcademicFlow (LifePlanner)** is a personal productivity platform designed to centralize academic scheduling, track daily habits, and manage deadline-driven tasks. The application features an interactive dashboard calendar, habit consistency heatmaps, and a dedicated task management workflow.
 
 ---
 
@@ -8,7 +8,7 @@
 
 | Infinite Calendar & Dashboard View | Task & Habit Sidebar |
 | :---: | :---: |
-| ![Dashboard View](calendar.png) | ![Sidebar View](todo.png) |
+| ![Dashboard View](./calendar.png) | ![To-Do List](./todo.png) |
 
 
 
